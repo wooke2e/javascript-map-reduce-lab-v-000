@@ -1,3 +1,15 @@
+var issuesWithUpdatedApiUrl = issues.map(function(value){
+  if (value.url.includes("api.github.com"){
+    
+  }
+})
+
+
+
+
+
+
+
 const issues = [
   {
     "body": "Instructions say GET /team and POST /newteam. Rspec wants GET/newteam and POST/team.",
