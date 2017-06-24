@@ -9011,8 +9011,9 @@ var commentCountAcrossIssues = issues.map(function(value) {
   return value.comments_count
 }).reduce(function(a,b) {return a + b}, 0)
 
-var openIssues = issues.map(function(value){
-  if (value.state === "open") {
-    return value
+var openIssues = issues.reduce(function a (result, value) {
+  if (value.state === "open"){
+    result + value
   }
-})
+  return result
+}, [])
