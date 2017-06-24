@@ -1,15 +1,3 @@
-var issuesWithUpdatedApiUrl = issues.map(function(value){
-  if (value.url.includes("api.github.com"){
-    
-  }
-})
-
-
-
-
-
-
-
 const issues = [
   {
     "body": "Instructions say GET /team and POST /newteam. Rspec wants GET/newteam and POST/team.",
@@ -9012,3 +9000,19 @@ const issues = [
     "url": "https://api.github.com/repos/learn-co-curriculum/js-donut-lab/issues/2"
   }
 ];
+
+var issuesWithUpdatedApiUrl = issues.map(function(value){
+  return Object.assign({}, value, {
+    url: value.url.replace("api.github.com", "api-v2.github.com")
+  })
+})
+
+var commentCountAcrossIssues = issues.map(function(value) {
+  return value.comments_count
+}).reduce(function(a,b) {return a + b}, 0)
+
+var openIssues = issues.map(function(value){
+  if (value.state === "open") {
+    return value
+  }
+})
